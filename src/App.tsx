@@ -1,9 +1,1 @@
-function App() {
-  return (
-    <>
-      Welcome to Battleground Database
-    </>
-  )
-}
-
-export default App
+export const App = () => <>Welcome to Battleground Database</>
