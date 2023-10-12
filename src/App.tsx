@@ -1,54 +1,30 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { LineChartFrame, type DataSet } from './components/Graph'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+const generateRandomArray = () => {
+  const min = 8000;
+  const max = 10000;
+  const arrayLength = 10;
+  const randomArray = [Math.floor(Math.random() * (max - min + 1)) + min];
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Bar Chart',
-    },
-  },
-};
+  for (let i = 1; i < arrayLength; i++) {
+    const previousValue = randomArray[i - 1];
+    // Generate a random number in the range [-50, 50]
+    const randomOffset = Math.floor(Math.random() * 101) - 50;
+    const newValue = previousValue + randomOffset;
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    // Ensure the generated value stays within the [min, max] range
+    randomArray.push(Math.max(min, Math.min(max, newValue)));
+  }
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [],
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: [],
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
+  return randomArray;
+}
 
 export const App = () => {
-  return <Bar options={options} data={data} />
+  const width = 730
+  const height = 250
+  const dataset: DataSet = {
+    title: "hoge",
+    data: generateRandomArray().map((it, index) => ({x: index, y: it}))
+  }
+  return <LineChartFrame width={width} height={height} dataset={dataset} />  
 }
