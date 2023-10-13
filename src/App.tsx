@@ -1,4 +1,5 @@
-import { LineChartFrame, type DataSet } from './components/Graph'
+import { type DataSet } from './components/Graph'
+import { Home } from './pages/Home';
 
 const generateRandomArray = () => {
   const min = 8000;
@@ -25,6 +26,6 @@ export const App = () => {
   const dataset: DataSet = {
     title: "hoge",
     data: generateRandomArray().map((it, index) => ({x: index, y: it}))
-  }
-  return <LineChartFrame width={width} height={height} dataset={dataset} />  
+  } 
+  return <Home/>
 }
