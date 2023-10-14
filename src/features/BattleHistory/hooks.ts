@@ -1,4 +1,5 @@
 import { type BattleHistory, type Hero, type Anomaly } from './type'
+import { add, addDays } from 'date-fns'
 
 const dammyMasterHerosData: Hero[] = [
   {
@@ -18,22 +19,21 @@ const dammyMasterAnomalyData: Anomaly[] = [
   }
 ]
 
-const dammyBattleHistoriesData: BattleHistory[] = [
-  {
-    id: 1,
-    date: new Date(),
-    hero: dammyMasterHerosData[0],
-    anomaly: dammyMasterAnomalyData[0],
-    rate: 1000
-  }
-]
+const today = new Date()
+const dammy: BattleHistory[] = [0, 0, 0, 0, 0].map((_, index) => ({
+  id: index,
+  date: addDays(today, index),
+  hero: dammyMasterHerosData[0],
+  anomaly: dammyMasterAnomalyData[0],
+  rate: 8000 + index
+}))
 
 /**
  * バトルグラウンドの戦闘履歴に関するhooks
  * @returns 
  */
 export const useUserBattleHistory = () => {
-  const battleHistories: BattleHistory[] = dammyBattleHistoriesData
+  const battleHistories: BattleHistory[] = dammy
 
   const edit = (id: number, date: Date, hero: Hero, anomaly: Anomaly, rate: number) => {
     // TODO: 更新処理

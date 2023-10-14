@@ -4,6 +4,7 @@ import { SidebarContent, SideBarNavItem } from '../../components/SideBar'
 import { FiSettings } from 'react-icons/fi'
 import { BiLineChart, BiPencil, BiHome, } from 'react-icons/bi'
 import { IconType } from 'react-icons'
+import { BattleHistoryLineChart } from '../../features/BattleHistory/LineChart'
 
 const LinkItems: {name: string, icon: IconType}[] = [
   { name: 'ホーム', icon: BiHome },
@@ -13,6 +14,7 @@ const LinkItems: {name: string, icon: IconType}[] = [
 ]
 
 export const HomePresenter = () => {
+
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       {/* 固定サイドバーであるため、`onClose`は利用しない */}
@@ -24,7 +26,7 @@ export const HomePresenter = () => {
         ))}
       </SidebarContent>
       <Box ml={{ base: 0, md: 60 }} p="4">
-        This is Content
+        <BattleHistoryLineChart />
       </Box>
     </Box>
   )
