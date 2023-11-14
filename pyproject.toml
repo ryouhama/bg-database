@@ -1,9 +1,9 @@
 [project]
 name = "bg-database"
 version = "0.1.0"
-description = "Add your description here"
+description = ""
 authors = [
-    { name = "ryouhama", email = "r0730hacap@icloud.com" }
+    { name = "ryouhama" }
 ]
 dependencies = [
     "pydantic>=2.4.2",
@@ -11,7 +11,7 @@ dependencies = [
     "gspread>=5.12.0",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.11"
 
 [build-system]
 requires = ["hatchling"]
@@ -19,7 +19,12 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "pytest>=7.4.3",
+]
+
+[tool.rye.workspace]
+members = ["app/*", "test/*"]
 
 [tool.hatch.metadata]
 allow-direct-references = true

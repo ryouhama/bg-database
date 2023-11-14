@@ -8,5 +8,6 @@ class FetchHeroUsecase:
         self.hero_repository = hero_repository
 
     def execute(self) -> dict:
-        heros = self.hero_repository.fetch()
+        dammy_url = "https://example.com"
+        heros = self.hero_repository.fetch(dammy_url)
         return {"heros": [it.model_dump() for it in heros.items]}

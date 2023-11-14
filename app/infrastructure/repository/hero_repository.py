@@ -15,7 +15,9 @@ class HeroRepository(HeroRepositoryInterface):
         return sheet
 
     def save(self, hero: Hero) -> Hero:
+        ...
         return super().save(hero)
 
     def delete(self, id: HeroId) -> None:
+        ...
         return super().delete(id)

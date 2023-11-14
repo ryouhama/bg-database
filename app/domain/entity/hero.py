@@ -10,13 +10,11 @@ class Heros:
 
     items: list["Hero"]
 
-    def find(self, id: HeroId) -> Optional["Hero"]:
-        if len(result := filter(lambda hero: hero.id == id, self.items)) >= 1:
-            return result[0]
-        return None
+    def __init__(self, items: list["Hero"]) -> None:
+        self.items = items
 
-    def find_by_name(self, name: str) -> Optional["Hero"]:
-        if len(result := filter(lambda hero: hero.name == name, self.items)) >= 1:
+    def find(self, id: HeroId) -> Optional["Hero"]:
+        if len(result := list(filter(lambda hero: hero.id == id, self.items))) >= 1:
             return result[0]
         return None
 
