@@ -1,6 +1,7 @@
 import pytest
 from app.domain.entity.hero import Heros, Hero
 from app.domain.value_object.hero_id import HeroId
+from app.domain.exceptions import DomainValidationException
 
 
 class TestHeros:
@@ -45,3 +46,11 @@ class TestHeros:
             id=HeroId.generate(1), name="test1", description="test1 description"
         )
         assert actual == expected
+
+
+class TestHero:
+    @pytest.fixture
+    def create_hero(self) -> Hero:
+        return Hero(
+            id=HeroId.generate(1), name="test1", description="test1 description"
+        )

@@ -1,0 +1,3 @@
+class FetchMasterUsecase:
+    def execute(self):
+        ...

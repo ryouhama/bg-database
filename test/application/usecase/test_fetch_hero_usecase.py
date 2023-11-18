@@ -5,7 +5,7 @@ from test.mock.repository.mock_hero_repository import MockedHeroRepository
 
 
 class TestFetchHeroUsecase:
-    def test__execute__(self):
+    def test__execute__2つのHeroが含まれた辞書データを返却すること(self):
         mocked_repository = MockedHeroRepository()
         mocked_repository.return_value = Heros(
             items=[
@@ -32,4 +32,14 @@ class TestFetchHeroUsecase:
                 },
             ]
         }
+        assert actual == expected
+
+    def test__execute__空の配列を返却すること(self):
+        mocked_repository = MockedHeroRepository()
+        mocked_repository.return_value = Heros(items=[])
+
+        usecase = FetchHeroUsecase(mocked_repository)
+
+        actual = usecase.execute()
+        expected = {"heros": []}
         assert actual == expected
