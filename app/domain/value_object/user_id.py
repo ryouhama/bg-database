@@ -1,5 +1,5 @@
-from app.domain.value_object.base import PrimaryKey
+from app.domain.value_object.base import PrimaryUUID
 
 
-class UserId(PrimaryKey):
+class UserId(PrimaryUUID):
     pass
