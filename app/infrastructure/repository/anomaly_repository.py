@@ -1,6 +1,5 @@
 from app.domain.entity import Anomaly
-from app.domain.repository_interface.anomaly_repository_interface import \
-    AnomalyRepositoryInterface
+from app.domain.repository_interface import AnomalyRepositoryInterface
 from app.domain.value_object import AnomalyId
 from app.infrastructure.db import TableSchema, get_client
 
@@ -11,7 +10,8 @@ class AnomalyRepository(AnomalyRepositoryInterface):
     def fetch(self) -> list[Anomaly]:
         response = (
             self.client.table(TableSchema.ANOMALY.value)
-            .select("id,name,description")
+            .select("id, name, description")
+            .order("id")
             .execute()
         )
 
@@ -23,6 +23,20 @@ class AnomalyRepository(AnomalyRepositoryInterface):
             )
             for it in response.data
         ]
+
+    def create(self, anomaly: Anomaly) -> Anomaly:
+        response = (
+            self.client.table(TableSchema.ANOMALY)
+            .upsert(
+                {
+                    "id": anomaly.id,
+                    "name": anomaly.name,
+                    "description": anomaly.description,
+                }
+            )
+            .execute()
+        )
+        return anomaly.model_rebuild(id=response.data["id"])
 
     def update(self, anomaly: Anomaly) -> Anomaly:
         response = (

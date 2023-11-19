@@ -10,7 +10,7 @@ class HeroRepositoryInterface(ABC):
     """
 
     @abstractmethod
-    def fetch(self, url: str) -> Heros:
+    def fetch(self) -> Heros:
         raise NotImplementedError
 
     @abstractmethod

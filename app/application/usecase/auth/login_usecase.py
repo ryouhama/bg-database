@@ -1,9 +1,7 @@
-from app.application.usecase.dto.base import Dto, MaskedString
 from app.application.exception import ApplicationException
+from app.application.usecase.dto.base import Dto, MaskedString
 from app.domain.entity import User
-from app.domain.repository_interface.user_repository_interface import (
-    UserRepositoryInterface,
-)
+from app.domain.repository_interface import UserRepositoryInterface
 
 
 class LoginUsecaseDto(Dto):
