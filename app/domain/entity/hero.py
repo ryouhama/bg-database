@@ -1,6 +1,7 @@
 from typing import Optional
+
 from app.domain.entity.base import Entity
-from app.domain.value_object.hero_id import HeroId
+from app.domain.value_object import HeroId
 
 
 class Heros:

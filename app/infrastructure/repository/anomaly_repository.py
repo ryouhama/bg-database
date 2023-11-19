@@ -1,9 +1,8 @@
+from app.domain.entity import Anomaly
+from app.domain.repository_interface.anomaly_repository_interface import \
+    AnomalyRepositoryInterface
+from app.domain.value_object import AnomalyId
 from app.infrastructure.db import TableSchema, get_client
-from app.domain.repository_interface.anomaly_repository_interface import (
-    AnomalyRepositoryInterface,
-)
-from app.domain.entity.anomaly import Anomaly
-from app.domain.value_object.anomaly_id import AnomalyId
 
 
 class AnomalyRepository(AnomalyRepositoryInterface):

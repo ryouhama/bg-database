@@ -1,7 +1,8 @@
-from app.application.usecase.fetch_hero_usecase import FetchHeroUsecase
-from app.domain.entity.hero import Heros, Hero
-from app.domain.value_object.hero_id import HeroId
 from test.mock.repository.mock_hero_repository import MockedHeroRepository
+
+from app.application.usecase.fetch_hero_usecase import FetchHeroUsecase
+from app.domain.entity.hero import Hero, Heros
+from app.domain.value_object.hero_id import HeroId
 
 
 class TestFetchHeroUsecase:

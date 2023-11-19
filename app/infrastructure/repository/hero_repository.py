@@ -1,8 +1,7 @@
-from app.domain.entity.hero import Hero, Heros
-from app.domain.value_object.hero_id import HeroId
-from app.domain.repository_interface.hero_repository_interface import (
-    HeroRepositoryInterface,
-)
+from app.domain.entity import Hero, Heros
+from app.domain.repository_interface.hero_repository_interface import \
+    HeroRepositoryInterface
+from app.domain.value_object import HeroId
 
 
 class HeroRepository(HeroRepositoryInterface):

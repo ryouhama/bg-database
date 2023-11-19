@@ -1,4 +1,5 @@
 from pydantic import BaseModel, ConfigDict
+
 from app.domain.value_object.base import PrimaryKey
 
 

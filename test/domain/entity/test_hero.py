@@ -1,7 +1,8 @@
 import pytest
-from app.domain.entity.hero import Heros, Hero
-from app.domain.value_object.hero_id import HeroId
+
+from app.domain.entity.hero import Hero, Heros
 from app.domain.exceptions import DomainValidationException
+from app.domain.value_object.hero_id import HeroId
 
 
 class TestHeros:

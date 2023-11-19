@@ -1,6 +1,5 @@
-from app.domain.repository_interface.hero_repository_interface import (
-    HeroRepositoryInterface,
-)
+from app.domain.repository_interface.hero_repository_interface import \
+    HeroRepositoryInterface
 
 
 class FetchHeroUsecase:

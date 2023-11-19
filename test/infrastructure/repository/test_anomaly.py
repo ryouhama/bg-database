@@ -1,6 +1,6 @@
-from app.infrastructure.repository.anomaly_repository import AnomalyRepository
 from app.domain.entity.anomaly import Anomaly
 from app.domain.value_object.anomaly_id import AnomalyId
+from app.infrastructure.repository.anomaly_repository import AnomalyRepository
 
 
 class TestAnomalyRepository:

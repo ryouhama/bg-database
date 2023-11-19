@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from app.domain.entity.hero import Heros, Hero
-from app.domain.value_object.hero_id import HeroId
+
+from app.domain.entity import Hero, Heros
+from app.domain.value_object import HeroId
 
 
 class HeroRepositoryInterface(ABC):

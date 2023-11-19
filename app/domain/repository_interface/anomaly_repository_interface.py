@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from app.domain.entity.anomaly import Anomaly
-from app.domain.value_object.anomaly_id import AnomalyId
+
+from app.domain.entity import Anomaly
+from app.domain.value_object import AnomalyId
 
 
 class AnomalyRepositoryInterface(ABC):
