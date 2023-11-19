@@ -1,7 +1,6 @@
 from typing import Any
 
-from app.domain.entity.hero import Hero, Heros
-from app.domain.value_object.hero_id import HeroId
+from app.domain.entity.hero import Heros
 from app.infrastructure.repository.hero_repository import HeroRepository
 
 
