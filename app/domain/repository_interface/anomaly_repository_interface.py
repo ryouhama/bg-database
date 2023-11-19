@@ -13,7 +13,7 @@ class AnomalyRepositoryInterface(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def save(self, anomaly: Anomaly) -> Anomaly:
+    def update(self, anomaly: Anomaly) -> Anomaly:
         raise NotImplementedError
 
     @abstractmethod
