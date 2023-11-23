@@ -1,3 +1,5 @@
+from injector import inject
+
 from app.domain.repository_interface import (
     AnomalyRepositoryInterface,
     HeroRepositoryInterface,
@@ -5,6 +7,7 @@ from app.domain.repository_interface import (
 
 
 class FetchMasterUsecase:
+    @inject
     def __init__(
         self,
         anomaly_repository: AnomalyRepositoryInterface,

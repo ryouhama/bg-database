@@ -1,8 +1,9 @@
 from typing import Optional
 
 from app.domain.entity import User
-from app.domain.repository_interface.user_repository_interface import \
-    UserRepositoryInterface
+from app.domain.repository_interface.user_repository_interface import (
+    UserRepositoryInterface,
+)
 from app.domain.value_object import UserId
 from app.infrastructure.db import get_client
 

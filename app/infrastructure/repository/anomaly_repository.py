@@ -1,3 +1,5 @@
+from injector import provider
+
 from app.domain.entity import Anomaly
 from app.domain.repository_interface import AnomalyRepositoryInterface
 from app.domain.value_object import AnomalyId

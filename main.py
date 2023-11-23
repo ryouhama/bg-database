@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.infrastructure.controller import loginRouter, logoutRouter, anomalyRouter
+from app.infrastructure.controller import anomalyRouter, loginRouter, logoutRouter
 
 app = FastAPI()
 app.include_router(loginRouter)

@@ -1,17 +1,26 @@
 from fastapi import APIRouter
-from injector import Injector, inject
+from injector import Injector
+
+from app.application.usecase.fetch_master_usecase import FetchMasterUsecase
+from app.domain.repository_interface import (
+    AnomalyRepositoryInterface,
+    HeroRepositoryInterface,
+)
+from app.infrastructure.db import Client, get_client
 from app.infrastructure.repository.anomaly_repository import AnomalyRepository
 from app.infrastructure.repository.hero_repository import HeroRepository
-from app.application.usecase.fetch_master_usecase import FetchMasterUsecase
 
 router = APIRouter()
 
 
+injector = Injector()
+injector.binder.bind(AnomalyRepositoryInterface, to=AnomalyRepository())
+injector.binder.bind(HeroRepositoryInterface, to=HeroRepository())
+
+
 @router.get("/anomaly")
 async def fetch():
-    usecase = FetchMasterUsecase(
-        anomaly_repository=AnomalyRepository(), hero_repository=HeroRepository()
-    )
+    usecase = injector.get(FetchMasterUsecase)
     return usecase.execute()
 
 
