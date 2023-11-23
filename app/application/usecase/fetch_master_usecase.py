@@ -19,5 +19,5 @@ class FetchMasterUsecase:
 
         return {
             "anomalies": [it.model_dump() for it in anomalies],
-            "heros": [it.model_dump() for it in heros],
+            "heros": [it.model_dump() for it in heros.items],
         }

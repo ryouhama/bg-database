@@ -7,7 +7,7 @@ from app.domain.value_object import HeroId
 
 class HeroRepository(HeroRepositoryInterface):
     def fetch(self) -> Heros:
-        ...
+        return Heros([])
 
     def save(self, hero: Hero) -> Hero:
         ...
