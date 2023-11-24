@@ -31,8 +31,11 @@ dev-dependencies = [
 [tool.rye.workspace]
 members = ["app/*", "test/*"]
 
+
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.isort]
 profile = "black"
+

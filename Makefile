@@ -1,5 +1,12 @@
-# supa: Supabase Commands
+# py: Python Commands
+py.setup:
+	rye sync
 
+py.update:
+	rm -rf .venv && rye sync
+
+
+# supa: Supabase Commands
 supa.setup:
 	brew install supabase/tap/supabase
 
